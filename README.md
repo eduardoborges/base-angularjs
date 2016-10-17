@@ -1,5 +1,8 @@
 # Esqueleto de projeto AngularJS
 
+[![Issue Stats](http://issuestats.com/github/eduardoborges/base-angularjs/badge/pr?style=flat)](http://issuestats.com/github/eduardoborges/base-angularjs)
+[![Issue Stats](http://issuestats.com/github/eduardoborges/base-angularjs/badge/issue?style=flat)](http://issuestats.com/github/eduardoborges/base-angularjs)
+[![npm version](https://badge.fury.io/js/%40angular%2Fcore.svg)](https://badge.fury.io/js/%40angular%2Fcore)
 
 Uma simples base para construção de aplicações angularJS feito com Gulp e GDGlove <3
 
