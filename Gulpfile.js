@@ -1,6 +1,6 @@
 'use-strict';
 
-const conf = require('./deploy.conf.js');
+const conf = require('./deploy.conf.js') || require('./sample-deploy.conf.js');
 
 var gulp        = require('gulp');
 var browserSync = require('browser-sync').create();
@@ -69,7 +69,7 @@ function serveTask() {
 
     browserSync.init(bsconfig);
 
-    gulp.watch(path.src + "/*.js", ['inject']).on('change', browserSync.reload);
+    gulp.watch(path.src + "/*.html", ['inject']).on('change', browserSync.reload);
     gulp.watch(path.src + "/**/*.scss", ['sass']);
     gulp.watch('bower.json', ['inject']).on('change', browserSync.reload);
     
