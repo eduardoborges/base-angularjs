@@ -14,7 +14,7 @@ Uma simples base para construção de aplicações angularJS feito com Gulp e GD
 
 ### Installation
 
-Como já é de prache, você precisa do [Node.js](https://nodejs.org/) v4+ NPM e Gulp (instalado globalmente) \
+Como já é de prache, você precisa do [Node.js](https://nodejs.org/) v4+ NPM e Gulp (instalado globalmente)
 Clone isto, ou baixe a [última build](https://github.com/eduardoborges/base-angularjs/releases).
 
 Instale as dependências e dependências de desenvolvimento, assim:
