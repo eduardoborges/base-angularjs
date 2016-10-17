@@ -16,6 +16,7 @@ var hApiFallback= require('connect-history-api-fallback');
 var tempCache   = require('gulp-angular-templatecache');
 var ftp         = require('gulp-ftp');
 var debug       = require('gulp-debug');
+var reload      = browserSync.reload;
 var path = {
     app: './src/app',
     tmp: './.tmp',
@@ -35,7 +36,7 @@ gulp.task('build:serve', buildserveTask);
 gulp.task('deploy', deployTask);
 
 var injectOpt       = { addRootSlash: false, relative: true };
-var injectSources   = gulp.src([path.src + '/**/*.js'], {read: false});
+var injectSources   = gulp.src([path.src + '/**/**/*.js'], {read: false});
 
 function sassTask() {
     return gulp.src(path.src + '/*.scss')
@@ -46,9 +47,10 @@ function sassTask() {
 
 function injectTask(){
     return gulp.src(path.src + "/index.html")
-        .pipe(inject(injectSources, injectOpt))
         .pipe(wiredep())
-        .pipe(gulp.dest(path.tmp));
+        .pipe(inject(injectSources, injectOpt))
+        .pipe(gulp.dest(path.tmp))
+        .pipe(browserSync.stream());
 }
 
 function serveTask() {
@@ -69,10 +71,9 @@ function serveTask() {
 
     browserSync.init(bsconfig);
 
-    gulp.watch(path.src + "/*.html", ['inject']).on('change', browserSync.reload);
+    gulp.watch(path.src + "/**/*.js", ['inject']);
     gulp.watch(path.src + "/**/*.scss", ['sass']);
-    gulp.watch('bower.json', ['inject']).on('change', browserSync.reload);
-    
+    gulp.watch('bower.json', ['inject']).on('change', reload);
 }
 
 /**
@@ -99,7 +100,6 @@ function bundleDist() {
         .pipe(gulpif('*.js', uglify()))
         .pipe(gulpif('*.scss', sass({mode: 'compressed'}) ))
         .pipe(gulp.dest(path.dist));
-            
 }
 
 function angularTemplateCache(){
@@ -147,14 +147,7 @@ function buildserveTask(){
 
 function deployTask(){
     console.log("Enviando arquivos... Vá tomar um café. ;)");
-    return gulp.src("/")
-        .pipe(prompt.confirm('Tem CERTEZA que deseja compilar e pôr em produção?',
-        function(){
-            if(res == "Y"){
-                gulp.src(path.dist + "/**/**")
-                    .pipe(ftp(conf.ftpData))
-            }
-            
-        }))
+    return gulp.src(path.dist + "/**/**")
+            .pipe(ftp(conf.ftpData));
         
 }

@@ -12,7 +12,7 @@
             templateUrl: 'app/welcome.html',
             controller: ControllerController,
             bindings: {
-                Binding: '=',
+                Binding: '=', 
             }, 
 
         });
@@ -20,7 +20,7 @@
     ControllerController.$inject = [];
     function ControllerController() {
         var $ctrl = this;
-        $ctrl.welcome = "Olá Mundo!";
+        $ctrl.welcome = "Olá Mundo 2!";
 
         ////////////////
 
