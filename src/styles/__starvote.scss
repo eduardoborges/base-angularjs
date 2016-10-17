@@ -1,0 +1,46 @@
+.rating {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    font-size: 20px;
+    color: black;
+    text-align: center;
+    display: block;
+    * {
+        transition: .3s;
+    }
+}
+.rating input {
+    display: none;
+}
+
+.rating > label {
+    display: inline-block;
+    position: relative;
+    width: 25px;
+    height: 25px;
+    margin: 0;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.rating > label::before {
+    content: "☆";
+    height: 25px;
+    width: 23px;
+    position: absolute;
+    left: 0;
+    transition: .5s;
+    font-size: 17px;
+    color: $pink2;
+    transition: .3s;
+}
+
+.rating > input:checked ~ label::before,
+.rating > input + label:hover ~ label::before,
+.rating > input + label:hover::before {
+    transition: .3s;
+    content: "★";
+    transition: .3s;
+    position: absolute;
+    color: $pink2;
+}

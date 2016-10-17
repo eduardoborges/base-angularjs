@@ -1,0 +1,86 @@
+.voucher-info {
+    * > .row{
+        height: 300px;
+        
+        @media(max-width: $screen-sm){
+            height: auto;
+        }
+    }
+    > .card {
+        background:white;
+        border-radius: 2px;
+        margin-bottom: 15px;
+        .details{
+            @media(max-width: $screen-sm){
+                margin-top: 150px;
+                padding-bottom: 15px;
+            }
+            .label{
+                color: $pink;
+                display: block;
+                text-transform: uppercase;
+                margin-top: 15px;
+            }
+            .info{
+                display: block;
+                text-transform: uppercase;
+                color: $black;
+                font-size: 16px;
+            }
+            .qrcode{
+                display: block;
+                margin: 15px auto;
+                max-width: 60%;     
+            }
+        }
+        .cover{
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            > .title{
+                color: white;
+                font: 35px $sec-font;
+                position: absolute;
+                bottom: 0px;
+                text-shadow: 2px 2px 1px black;
+            }
+            @media(max-width: $screen-sm){
+                height: 200px;
+                margin-bottom: 50px;
+                > .title{
+                    top: calc(100%);
+                    color: black;
+                    text-align: center;
+                    text-shadow: none;
+                }
+            }
+        }
+    }
+    > .actions{
+        padding: 20px;
+        @media(max-width: $screen-sm){
+            .btn{
+                width: 100%;
+                padding: 15px 25px;
+                margin: 10px 0;
+            }
+        }
+    }
+    > .info{
+        font-family: $sec-font;
+        > .row{
+            height: auto;
+        }
+        .label{
+            color: $pink;
+            text-transform: uppercase;
+            margin-top: 15px;
+        }
+        .info{
+            text-transform: uppercase;
+            color: $black;
+            font-size: 18px;
+            font-weight: 700;
+        }
+    }
+}

@@ -1,0 +1,209 @@
+.header{
+    padding: 60px;
+    position: relative;
+    > .container{
+        > .logo{
+            height: 250px;
+            width: 280px;
+            position: absolute;
+            display: block;
+            top: 5px;
+            z-index: 2;
+            @media(max-width: $screen-sm){
+                position: relative;
+            }
+            > .sub{
+                width: 200px;
+                height: 200px;
+                background: #fff url(./../images/logoClube+.png) center /85% no-repeat;
+                position: absolute;
+                right: 0;
+                border-radius: 100%;
+                box-shadow: 1px 4px 11px 1px rgba(0,0,0,0.2);
+                z-index: 3;
+            }
+            &::before, &::after{
+                content: "";
+                height: 150px;
+                width: 150px;
+                display: block;
+                position: absolute;
+                z-index: 1;
+            }
+            &::before{
+                background: url(./../images/circulogradiente.png) center / contain no-repeat;
+                bottom: 50%;
+                left: 25px;
+                z-index: 2;
+                
+            }
+            &::after{
+                background: url(./../images/circulocortadoVERDE.png) center / contain no-repeat;
+                top: 25%;
+                left: 0;
+                z-index: 1;
+                height: 130px;
+                width: 130px;
+            }
+
+        }
+        input#toggle{
+            display: none; // :P
+        }
+
+        // desktop screens
+        @media(min-width: $screen-sm){
+            .main-menu{
+                > .item{
+                    display: inline-block;
+                    position: relative;
+                    > a{
+                        font-family: $sec-font;
+                        font-size: 13px;
+                        text-transform: uppercase;
+                        color: $black;
+                        font-weight: 400;
+                        padding-left: 15px;
+                        position: relative;
+                        display: inline-block;
+                        transition: .3s;
+                        &:hover{
+                            opacity: .8;
+                        }
+                        &:hover::after{
+                            width: 35px;
+                            transition: .3s cubic-bezier(0.88, 0.05, 0, 1.99);
+                        }
+                        &::after{
+                            content: "";
+                            height: 2px;
+                            width: 0;
+                            background: #ec3131;
+                            position: absolute;
+                            bottom: -5px;
+                            left: 15px;
+                            transition: .5s cubic-bezier(1, 0.05, 0, 1.07);
+                        }
+                    }
+                    > .submenu{
+                        position: absolute;
+                        top: 100%;
+                        left: 5px;
+                        margin: 0;
+                        padding: 0;
+                        background: white;
+                        display: none;
+                        z-index: 3;
+                        width: 150%;
+                        box-shadow: 1px 4px 11px 1px rgba(0,0,0,0.2);
+                        > a{
+                            padding: 8px 10px;
+                            display: block;
+                            text-transform: uppercase;
+                            font-size: 11px; 
+                            color: $black;
+                            &:nth-of-type(n+2){
+                                border-top: solid 1px #CCC;
+                            }
+                            &:hover{
+                                background: $black;
+                                color: white;
+                            }
+                        }
+                    }
+                    &:hover > .submenu{
+                        display: block;
+                    }
+                }
+            }
+        }
+
+        // mobile screen
+        @media(max-width: $screen-sm){
+            $toggle-height: 30px;
+            #toggle:checked{
+                & + .main-menu{
+                    left: 0;
+                    transition: .3s;
+                    > .toggle-button{
+                        &:after{
+                            transform: rotate(45deg);
+                            top: $toggle-height / 2 - (3px / 2);
+                        }
+                        &:before{
+                            transform: rotate(-45deg);
+                            bottom: $toggle-height / 2 - (3px / 2);
+                        }
+                        &> i{
+                            opacity: 0;
+                        }
+                    }
+                }
+            }
+            .toggle-button{
+                display: block;
+                height: $toggle-height;
+                width: 40px;
+                position: fixed;
+                top: $toggle-height / 1.5;
+                left: 25px;
+                z-index: 5;
+                &:after, &:before, & > i{
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 4px;
+                    background:red;
+                    transition: .3s;
+                }
+                &:after{
+                    top: 0;
+                }
+                & > i{
+                    top: $toggle-height / 2 - (4px / 2);
+                }
+                &:before{
+                    bottom: 0;
+                }
+            }
+            .main-menu{
+                position: fixed;
+                width: 80%;
+                height: 100%;
+                background: white;
+                top: 0;
+                left: -81%;
+                box-shadow: 0 3px 16px 2px rgba(0,0,0,0.6);
+                z-index: 4;
+                transition: .3s;
+                > .item{
+                    display: block;
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                    &:first-of-type{
+                        margin-top: 70px;
+                    }
+                    > a {
+                        display: block;
+                        padding: 25px 30px;
+                        font: 17px #{$sec-font};
+                        font-weight: 700;
+                        text-transform: uppercase;
+                        color: $black;
+                        border-bottom: 1px solid rgba($color: #e71881, $alpha: .1);
+                        transition: .3s;
+                        &:focus{
+                            background:#e71881;
+                            color: white;
+                        }
+                        
+                    }
+                }
+            }
+        }
+        
+    }
+    
+}
+

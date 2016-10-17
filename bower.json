@@ -1,0 +1,20 @@
+{
+  "name": "fountain-inject",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-route": "^1.5.8",
+    "angularfire": "^2.0.2",
+    "firebase": "^3.4.1",
+    "Swiper": "swiper#^3.3.1",
+    "bootstrap-sass": "^3.3.7",
+    "modernizr": "^3.3.1",
+    "jquery": "^3.1.1",
+    "font-awesome": "^4.6.3",
+    "animate.css": "^3.5.2",
+    "locawebstyle": "^3.9.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.5.0"
+  }
+}

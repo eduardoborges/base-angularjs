@@ -1,0 +1,47 @@
+// base styles, fonts, etc.
+
+@font-face {
+	font-family: $pri-font;
+	src: url('fonts/hinted-TheMix-Light.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: $pri-font;
+	src: url('fonts/hinted-TheMix-ExtraBold.ttf') format('truetype');
+	font-weight: 800;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: $pri-font;
+	src: url('fonts/hinted-TheMix-ExtraLight.ttf') format('truetype');
+	font-weight: 200;
+	font-style: normal;
+}
+
+@import 'https://fonts.googleapis.com/css?family=Lato:300,500,700';
+
+
+// base
+html, body{
+	min-height: 100%;
+}
+body{
+	background: linear-gradient(#e9e9e9, #b9c7cd); 
+	min-height: 100%;
+	font-family: $pri-font;
+}
+
+.btn{
+	padding: 10px 25px;
+	background: $pink2;
+	color: white;
+	border: none;
+	border-radius: 2px;
+	transition: .3s;
+	&:hover{
+		opacity: .8;
+	}
+}
