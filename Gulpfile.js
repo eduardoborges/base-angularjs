@@ -5,6 +5,7 @@ const conf = require('./deploy.conf.js') || require('./sample-deploy.conf.js');
 var gulp        = require('gulp');
 var browserSync = require('browser-sync').create();
 var sass        = require('gulp-sass');
+var sassGlob    = require('gulp-sass-glob');
 var sourcemaps  = require('gulp-sourcemaps');
 var uglify      = require('gulp-uglify');
 var del         = require('del');
@@ -40,6 +41,7 @@ var injectSources   = gulp.src([path.src + '/**/**/*.js'], {read: false});
 
 function sassTask() {
     return gulp.src(path.src + '/*.scss')
+        .pipe(sassGlob())
         .pipe(sass.sync().on('error', sass.logError))
         .pipe(gulp.dest(path.tmp))
         .pipe(browserSync.stream());
